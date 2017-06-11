@@ -1,0 +1,21 @@
+<div uib-alert ng-repeat="errorMessage in errorMessages" class="alert-danger" close="closeAlert($index)">{{ errorMessage }}</div>
+
+<form class="form-horizontal" ng-submit="login()">
+    <div class="form-group">
+        <label for="form-login-username" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="form-login-username" name="username" placeholder="Nom d'utilisateur" ng-model="user._username">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="form-login-password" class="col-sm-2 control-label">Mot de passe</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="form-login-password" name="password" placeholder="Mot de passe" ng-model="user._password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" ng-disabled="isLoading()">Se connecter</button>
+        </div>
+    </div>
+</form>

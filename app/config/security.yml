@@ -1,0 +1,42 @@
+security:
+    encoders:
+        \ApiBundle\Entity\User:
+            algorithm: bcrypt
+            iterations: 7682
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        main:
+            entity: { class: \ApiBundle\Entity\User, property: username }
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login:
+            pattern: ^/api/security/login/$
+            security: false
+
+        main:
+            pattern: ^/
+            form_login:
+                login_path: /api/security/login/
+                check_path: /api/security/login-check/
+                default_target_path: /api/security/login/
+            anonymous: true
+
+            logout:
+                path: /api/security/logout/
+                target: /
+
+    access_control:
+        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/security/register/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/security/login/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/security/login-check/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/security/is-logged/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api, roles: ROLE_USER }

@@ -1,0 +1,11 @@
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: unit_test_projet_x
+    database_user: root
+    database_password: projet-x-PWD0
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: 218853e4f2b3161da169ef054f3d9e46adaaec4f

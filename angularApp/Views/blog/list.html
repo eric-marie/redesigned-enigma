@@ -1,0 +1,25 @@
+<div ng-switch on="isLoading()">
+    <div ng-switch-when="true">
+        Articles are loading
+    </div>
+    <div ng-switch-default>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>Titre</td>
+                <td>Contenu</td>
+                <td>Auteur</td>
+                <td>Commentaires</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="article in articlesList">
+                <td><a ng-href="#!/blog/{{ article.id }}/">{{ article.title }}</a></td>
+                <td>{{ article.content|limitTo:20 }}</td>
+                <td>{{ article.author.username }}</td>
+                <td>{{ article.comments.lenght }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

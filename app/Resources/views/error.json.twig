@@ -1,0 +1,7 @@
+{% spaceless %}
+[
+    {% for error in errors %}
+    "{{ error }}"{{ not loop.last ? ',' }}
+    {% endfor %}
+]
+{% endspaceless %}

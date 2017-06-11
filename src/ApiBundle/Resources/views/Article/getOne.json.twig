@@ -1,0 +1,23 @@
+{% spaceless %}
+{
+    "id": "{{ article.id }}",
+    "author": {
+        "id": "{{ article.idUser.id }}",
+        "username": "{{ article.idUser.username }}"
+    },
+    "title": "{{ article.title }}",
+    "content": "{{ article.content }}",
+    "comments": [
+        {% for comment in article.comments %}
+        {
+            "id": "{{ comment.id }}",
+            "author": {
+                "id": "{{ comment.idUser.id }}",
+                "username": "{{ comment.idUser.username }}"
+            },
+            "content": "{{ comment.content }}"
+        }{{ not loop.last ? ',' }}
+        {% endfor %}
+    ]
+}
+{% endspaceless %}

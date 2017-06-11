@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="ProjetXModule">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{{ 'Projet X'|trans }} - {% block title %}{% endblock %}</title>
+    <script type="text/javascript" charset="utf-8" src="{{ asset('js/javascript.min.js') }}"></script>
+    <link rel="stylesheet" charset="UTF-8" href="{{ asset("css/stylesheet.min.css") }}">
+    <script type="text/javascript" charset="UTF-8">
+        {% if 'dev' == app.environment %}
+        Routing.setBaseUrl('/app_dev.php');
+        {% endif %}
+        {% if user is not null %}
+        window.user = {id: '{{ user.id }}', username: '{{ user.username }}'};
+        {% else %}
+        window.user = null;
+        {% endif %}
+        window.ajaxLoading = [];
+    </script>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body class="container">
+{% verbatim %}
+<nav class="navbar navbar-default" ng-controller="InterfaceMenuCtrl">
+    <i ng-show="isLoading()" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" aria-hidden="true" style="position:absolute;top:3px;left:-53px;color:#258478;"></i>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-menu" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+            </button>
+            <a ng-href="#!/" class="navbar-brand">Projet X</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav">
+                <li ng-show="loggedIn()"><a ng-href="#!/blog/" self-refresh>Blog</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-show="loggedIn()"><a ng-href="#!/" ng-click="logout()">Déconnexion</a></li>
+                <li ng-hide="loggedIn()"><a ng-href="#!/security/register" self-refresh>S'inscrire</a></li>
+                <li ng-hide="loggedIn()"><a ng-href="#!/security/login" self-refresh>Se connecter</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endverbatim %}
+{% block body %}{% endblock %}
+</body>
+</html>

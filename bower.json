@@ -1,0 +1,28 @@
+{
+  "name": "eric-marie/projet-x",
+  "description": "Base d'un projet avec API REST Symfony et front-end Angularjs",
+  "authors": [
+    "Eric MARIE"
+  ],
+  "license": "proprietary",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.*",
+    "angularjs": "1.6.*",
+    "angular-resource": "1.6.*",
+    "angular-route": "1.6.*",
+    "angular-bootstrap": "2.4.*",
+    "angular-animate": "1.6.*",
+    "angular-touch": "1.6.*",
+    "angular-sanitize": "1.6.*",
+    "font-awesome": "4.7.*",
+    "underscore": "1.8.*"
+  }
+}

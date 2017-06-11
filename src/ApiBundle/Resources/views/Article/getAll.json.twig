@@ -1,0 +1,7 @@
+{% spaceless %}
+[
+    {% for article in articles %}
+    {% include '@Api/Article/getOne.json.twig' with {'article': article} %}{{ not loop.last ? ',' }}
+    {% endfor %}
+]
+{% endspaceless %}

@@ -1,0 +1,19 @@
+{
+  "name": "projet-x",
+  "description": "Base d'un projet avec API REST Symfony et front-end Angularjs",
+  "version": "0.1.0",
+  "license": "proprietary",
+  "author": "Eric MARIE",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "1.0.*",
+    "load-grunt-tasks": "3.5.*",
+    "grunt-contrib-imagemin": "1.0.*",
+    "grunt-contrib-copy": "1.0.*",
+    "grunt-contrib-less": "1.4.*",
+    "grunt-contrib-concat": "1.0.*",
+    "grunt-contrib-uglify": "2.0.*",
+    "grunt-contrib-watch": "1.0.*",
+    "grunt-contrib-htmlmin": "2.1.*"
+  }
+}

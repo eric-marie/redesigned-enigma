@@ -1,0 +1,43 @@
+# Paramétrage de l'IDE PHPStorm
+.idea/
+# Vagrant
+.vagrant/
+# Resultats des provisioning Vagrant
+vagrant-provisioning/*.result
+# Archive PHP de composer qui est téléchargé par un des provisioning Vagrant
+composer.phar
+# composer.lock est un rapport de la dernière execution de composer
+composer.lock
+# A installer sur son PC ou à télécharger soi-même au choix
+phpunit.phar
+# Fichiers *.php à ignorer
+web/phpinfo.php
+web/server.php
+# NodeJS et Bower
+npm-debug.log
+node_modules/
+bower_components/
+# Dossiers d'assets
+web/css/
+web/fonts/
+web/img/
+web/js/
+web/views/
+
+###########
+# Symfony #
+###########
+# On n'archive que le parameters.yml.dist qui doit servir de modèle à chacun pour créer son propre parameters.yml
+/app/config/parameters.yml
+/build/
+/phpunit.xml
+# On ignore tout le contenu du dossier var sauf SymfonyRequirements.php
+/var/*
+!var/SymfonyRequirements.php
+# Les vendors sont installés via Composer
+/vendor/
+# Il s'agit des assets installés par Symfony à partir des bundles. Ce sont des copies de fichiers déjà archivés dans
+# leurs bundles respectifs
+/web/bundles/
+# Le fichier de verification de configuration pour faire fonctionner Symfony
+web/config.php

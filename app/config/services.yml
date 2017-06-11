@@ -1,0 +1,5 @@
+services:
+    security.authentication.success_handler:
+        class: ApiBundle\Service\AuthenticationSuccessHandler
+        public: false
+        arguments:  ['@security.http_utils', '@doctrine']
